@@ -1,15 +1,4 @@
-console.log('Starting')
+const request = require('request')
 
-//node can continue to run things down below while its waiting for 2 secs to pass
-setTimeout(() => {
-    console.log('2 second timer')
-} , 2000)
+const url = 'http://api.weatherstack.com/current?access_key=b7660020ffeb0dd6c15dcbc412048749&query=37.8267,-122.4233'
 
-setTimeout(() => {
-    console.log('O sec timer')
-}, 0)
-
-console.log('Stoping')
-
-//this is the basic structure that we can put in the browser to fetch an API
-// http://api.weatherstack.com/current?key=value&name=andrew
