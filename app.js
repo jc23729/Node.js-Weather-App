@@ -11,3 +11,6 @@ request({ url: url, json: true}, (error, response)=> {
     console.log(response.body.current)
 })
 
+//Goal: Print a small forecast to the user
+//Print : "It is currently 58.55 degrees out. There is a chance of 0% chance of rain"
+//Test your work
