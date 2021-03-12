@@ -6,5 +6,6 @@ request({ url: url}, (error, response)=> {
     // console.log(response)  then run node app.js  in terminal will give you all the data 
     //we parse our data with JSON.parse and it lives on response.body
     const data = JSON.parse(response.body)
+    console.log(data.current)
 })
 
