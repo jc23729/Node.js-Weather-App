@@ -5,4 +5,8 @@ setTimeout(() => {
     console.log('2 second timer')
 } , 2000)
 
+setTimeout(() => {
+    console.log('O sec timer')
+}, 0)
+
 console.log('Stoping')
