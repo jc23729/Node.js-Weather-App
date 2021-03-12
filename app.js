@@ -10,3 +10,6 @@ setTimeout(() => {
 }, 0)
 
 console.log('Stoping')
+
+//this is the basic structure that we can put in the browser to fetch an API
+// http://api.weatherstack.com/current?key=value&name=andrew
