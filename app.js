@@ -1,10 +1,12 @@
 const request = require('request')
 
-const url = 'http://api.weatherstack.com/current?access_key=b7660020ffeb0dd6c15dcbc412048749&query=37.8267,-122.4233&units=f'
-
+const url = 'http://api.weatherstack.com/current?access_key=b7660020ffeb0dd6c15dcbc412048749&query=&units=f'
+//info that we took out to break the app
 request({ url: url, json: true}, (error, response)=> {
     if(error){
         console.log('Unable to connect to weather service')
+    }else if(response.body.error){
+        console.log('Unable to find location')
     }else{
         console.log(response.body.current.weather_descriptions[0] + "It is currently " + response.body.current.temperature + " degrees out. There is a " + response.body.current.precip + "Chance of rain")
     }
