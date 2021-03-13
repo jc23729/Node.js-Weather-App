@@ -8,9 +8,10 @@ request({ url: url, json: true}, (error, response)=> {
     // const data = JSON.parse(response.body)
     // console.log(data.current)
     //console.console.log( m,mmmresponse.body.current)is doing the same as on top
-    console.log(response.body.current)
+    console.log(response.body.current.weather_descriptions[0] + "It is currently" + response.body.current.temperature + "degrees out")
 })
-
+// response.body.current
 //Goal: Print a small forecast to the user
 //Print : "It is currently 58.55 degrees out. There is a chance of 0% chance of rain"
 //Test your work
+
