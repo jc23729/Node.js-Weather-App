@@ -23,10 +23,10 @@ request({ url: url, json: true}, (error, response)=> {
 // 3 Print both the latitude and longitude to the terminal
 // 4 Test your work
 
-const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw'
+// const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw'
 
-request({url: geocodeURL, json: true}, (error, response) => {
-    const latitude = response.body.features[0].center[1]
-    const longitude = response.body.features[0].center[0]
-    console.log(latitude, longitude)
-})
+// request({url: geocodeURL, json: true}, (error, response) => {
+//     const latitude = response.body.features[0].center[1]
+//     const longitude = response.body.features[0].center[0]
+//     console.log(latitude, longitude)
+// })
