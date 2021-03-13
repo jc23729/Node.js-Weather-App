@@ -46,10 +46,18 @@ const request = require('request')
 const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw'
 
 request({url: geocodeURL, json: true}, (error, response) => {
-    
+    if(error){
+        console.log('Unable to connect to GeoCoding service')
+    }else if(response.body.features === 0){
+        console.log('unable to connect to location service')
+    }else{
+        const latitude = response.body.features[0].center[1]
+        const longitude = response.body.features[0].center[0]
+        console.log(latitude, longitude)
+    }
 })
 
 
-const latitude = response.body.features[0].center[1]
-const longitude = response.body.features[0].center[0]
-console.log(latitude, longitude)
+// const latitude = response.body.features[0].center[1]
+// const longitude = response.body.features[0].center[0]
+// console.log(latitude, longitude)
