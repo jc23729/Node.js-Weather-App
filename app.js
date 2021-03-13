@@ -3,7 +3,11 @@ const request = require('request')
 const url = 'http://api.weatherstack.com/current?access_key=b7660020ffeb0dd6c15dcbc412048749&query=37.8267,-122.4233&units=f'
 
 request({ url: url, json: true}, (error, response)=> {
-    console.log(error)
+    if(error){
+        console.log('Unable to connect to weather service')
+    }else{
+        console.log(response.body.current.weather_descriptions[0] + "It is currently " + response.body.current.temperature + " degrees out. There is a " + response.body.current.precip + "Chance of rain")
+    }
 })
 
 
