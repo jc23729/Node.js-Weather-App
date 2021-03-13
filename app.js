@@ -17,3 +17,6 @@ request({ url: url, json: true}, (error, response)=> {
 
 //GeoCoding Service 
 // Address => Lat/Long  => Weather
+
+
+const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw&limit=1'
