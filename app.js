@@ -1,6 +1,6 @@
 const request = require('request')
 
-const url = 'http://api.weatherstack.com/current?access_key=b7660020ffeb0dd6c15dcbc412048749&query=37.8267,-122.4233'
+const url = 'http://api.weatherstack.com/current?access_key=b7660020ffeb0dd6c15dcbc412048749&query=37.8267,-122.4233&units=f'
 // response.body.current
 //Goal: Print a small forecast to the user
 //Print : "It is currently 58.55 degrees out. There is a chance of 0% chance of rain"
