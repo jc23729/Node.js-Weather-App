@@ -17,6 +17,16 @@ request({ url: url, json: true}, (error, response)=> {
 
 //GeoCoding Service 
 // Address => Lat/Long  => Weather
+//Goal Print out lat/long for Los Angeles
+// 1 Fire off request to the URL explored in the browser
+// 2 Have the request module parse it as JSON
+// 3 Print both the latitude and longitude to the terminal
+// 4 Test your work
 
+const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw'
 
-const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw&limit=1'
+request({url: geocodeURL, json: true}, (error, response) => {
+    const latitude = response.body.features[0].center[1]
+    const longitude = response.body.features[0].center[0]
+    console.log(latitude, longitude)
+})
