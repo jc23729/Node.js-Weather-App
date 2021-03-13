@@ -7,7 +7,7 @@ request({ url: url, json: true}, (error, response)=> {
     //we parse our data with JSON.parse and it lives on response.body
     // const data = JSON.parse(response.body)
     // console.log(data.current)
-    //console.console.log(response.body.current)is doing the same as on top
+    //console.console.log( m,mmmresponse.body.current)is doing the same as on top
     console.log(response.body.current)
 })
 
