@@ -61,3 +61,11 @@ request({url: geocodeURL, json: true}, (error, response) => {
 // const latitude = response.body.features[0].center[1]
 // const longitude = response.body.features[0].center[0]
 // console.log(latitude, longitude)
+
+
+
+// When we call add() at line 40, the add method is added to the callstack, then the setTimeout is added to the call stack and moved out of call stack to the Node API, then add method is done, after 2 seconds, callback method is moved to the callback queue, then it gets executed. But when the callback method gets executed, the add method has already finished, which means the arguments a and b should be cleared in the memory. So why the callback method still have access to a and b?
+
+
+
+// Does argument a and b exist in stack or heap?
