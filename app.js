@@ -1,4 +1,52 @@
-const request = require('request')
+// const request = require('request')
+
+// //Challenge 2 setting up Error Handling
+// // 1. Setup an error handler for low level errors
+// // 2. Test by disabling network request and running the app
+// // 3. Setup error handling for no matching Results
+// // 4. Test by altering the search term and running the app
+
+// const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw'
+
+// request({url: geocodeURL, json: true}, (error, response) => {
+//     if(error){
+//         console.log('Unable to connect to GeoCoding service')
+//     }else if(response.body.features === 0){
+//         console.log('unable to connect to location service')
+//     }else{
+//         const latitude = response.body.features[0].center[1]
+//         const longitude = response.body.features[0].center[0]
+//         console.log(latitude, longitude)
+//     }
+// })
+
+
+// const latitude = response.body.features[0].center[1]
+// const longitude = response.body.features[0].center[0]
+// console.log(latitude, longitude)
+
+
+
+// When we call add() at line 40, the add method is added to the callstack, then the setTimeout is added to the call stack and moved out of call stack to the Node API, then add method is done, after 2 seconds, callback method is moved to the callback queue, then it gets executed. But when the callback method gets executed, the add method has already finished, which means the arguments a and b should be cleared in the memory. So why the callback method still have access to a and b?
+
+
+
+// Does argument a and b exist in stack or heap?
+
+
+// const https = require('https');
+
+// https.get('https://encrypted.google.com/', (res) => {
+//   console.log('statusCode:', res.statusCode);
+//   console.log('headers:', res.headers);
+
+//   res.on('data', (d) => {
+//     process.stdout.write(d);
+//   });
+
+// }).on('error', (e) => {
+//   console.error(e);
+// });
 
 // const url = 'http://api.weatherstack.com/current?access_key=b7660020ffeb0dd6c15dcbc412048749&query=37.8267,-122.4233&units=f'
 // //info that we took out to break the app 37.8267,-122.4233
@@ -37,50 +85,17 @@ const request = require('request')
 // 3 Print both the latitude and longitude to the terminal
 // 4 Test your work
 
-//Challenge 2 setting up Error Handling
-// 1. Setup an error handler for low level errors
-// 2. Test by disabling network request and running the app
-// 3. Setup error handling for no matching Results
-// 4. Test by altering the search term and running the app
 
-const geocodeURL = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angeles.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw'
+const geocode = (address , callback) => {
+    const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/' + encodeURIComponent(address) + '.json?access_token=pk.eyJ1IjoiamMyMzcyOSIsImEiOiJja204NHk3d3UxNGxnMnZvam5yNmY1ejU5In0.Fgrk60-BTlJGsXqeEzrsbw'
 
-request({url: geocodeURL, json: true}, (error, response) => {
-    if(error){
-        console.log('Unable to connect to GeoCoding service')
-    }else if(response.body.features === 0){
-        console.log('unable to connect to location service')
-    }else{
-        const latitude = response.body.features[0].center[1]
-        const longitude = response.body.features[0].center[0]
-        console.log(latitude, longitude)
-    }
+    request({ url: url, json: true}, (error, response)=> {
+        if (error) {
+            callback('Unable to connect to location services')
+        }
+    })
+}
+
+geocode('Philadelphia', (error, data) => {
+
 })
-
-
-// const latitude = response.body.features[0].center[1]
-// const longitude = response.body.features[0].center[0]
-// console.log(latitude, longitude)
-
-
-
-// When we call add() at line 40, the add method is added to the callstack, then the setTimeout is added to the call stack and moved out of call stack to the Node API, then add method is done, after 2 seconds, callback method is moved to the callback queue, then it gets executed. But when the callback method gets executed, the add method has already finished, which means the arguments a and b should be cleared in the memory. So why the callback method still have access to a and b?
-
-
-
-// Does argument a and b exist in stack or heap?
-
-
-// const https = require('https');
-
-// https.get('https://encrypted.google.com/', (res) => {
-//   console.log('statusCode:', res.statusCode);
-//   console.log('headers:', res.headers);
-
-//   res.on('data', (d) => {
-//     process.stdout.write(d);
-//   });
-
-// }).on('error', (e) => {
-//   console.error(e);
-// });
