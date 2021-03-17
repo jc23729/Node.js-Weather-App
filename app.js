@@ -91,11 +91,14 @@ const geocode = (address , callback) => {
 
     request({ url: url, json: true}, (error, response)=> {
         if (error) {
-            callback('Unable to connect to location services')
+            callback('Unable to connect to location services', undefined)
+        }else if (response.body.features.length === 0) {
+            callback('Unable to find location. Try another search', undefined)
         }
     })
 }
 
 geocode('Philadelphia', (error, data) => {
-
+    console.log('Error', error)
+    console.log('data', data)
 })
